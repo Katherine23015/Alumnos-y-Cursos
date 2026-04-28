@@ -1,0 +1,25 @@
+@startuml
+class Alumno {
+  - nombre: String
+  - apellido: String
+  - matricula: String
+  - carrera: String
+  + Alumno()
+  + Alumno(nombre, apellido, matricula, carrera)
+  + getNombre(): String
+  + setNombre(nombre: String)
+  + toString(): String
+}
+
+class Curso {
+  - nombre: String
+  - codigo: String
+  - listaAlumnos: ArrayList<Alumno>
+  + agregarAlumno(a: Alumno)
+  + eliminarAlumno(matricula: String): boolean
+  + perteneceAlCurso(matricula: String): boolean
+  + toString(): String
+}
+
+Curso "1" o-- "0" Alumno : contiene
+@enduml
